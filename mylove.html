@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Bilqis 🌸</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins',sans-serif;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      background:#1a0f0f;
+      color:white;
+      overflow-x:hidden;
+    }
+
+    /* NAVBAR */
+
+    nav{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      padding:20px 8%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      z-index:999;
+      background:rgba(0,0,0,0.2);
+      backdrop-filter:blur(15px);
+    }
+
+    nav h2{
+      color:#ffb6d9;
+      font-size:28px;
+    }
+
+    nav ul{
+      display:flex;
+      gap:25px;
+      list-style:none;
+    }
+
+    nav ul li a{
+      color:white;
+      text-decoration:none;
+      transition:0.3s;
+    }
+
+    nav ul li a:hover{
+      color:#ffb6d9;
+    }
+
+    /* HERO */
+
+    .hero{
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      padding:20px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero-content{
+      position:relative;
+      z-index:5;
+    }
+
+    .hero h1{
+      font-size:85px;
+      margin-bottom:20px;
+      animation:fadeUp 1.5s ease;
+    }
+
+    .hero h1 span{
+      color:#ff9ac7;
+    }
+
+    .hero p{
+      max-width:700px;
+      line-height:1.9;
+      color:#ddd;
+      font-size:20px;
+      animation:fadeUp 2s ease;
+    }
+
+    .btn{
+      display:inline-block;
+      margin-top:35px;
+      padding:15px 35px;
+      border-radius:50px;
+      background:#ff9ac7;
+      color:white;
+      text-decoration:none;
+      transition:0.3s;
+    }
+
+    .btn:hover{
+      transform:translateY(-5px);
+      background:white;
+      color:black;
+    }
+
+    /* SECTION */
+
+    section{
+      padding:120px 10%;
+      position:relative;
+    }
+
+    .title{
+      font-size:55px;
+      color:#ffb6d9;
+      margin-bottom:25px;
+    }
+
+    .desc{
+      color:#ccc;
+      line-height:1.9;
+      max-width:800px;
+    }
+
+    /* CARDS */
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:25px;
+      margin-top:50px;
+    }
+
+    .card{
+      background:rgba(255,255,255,0.05);
+      padding:35px;
+      border-radius:30px;
+      backdrop-filter:blur(15px);
+      border:1px solid rgba(255,255,255,0.08);
+      transition:0.4s;
+    }
+
+    .card:hover{
+      transform:translateY(-10px);
+    }
+
+    .card h3{
+      color:#ffb6d9;
+      margin-bottom:15px;
+    }
+
+    .card p{
+      color:#ccc;
+      line-height:1.8;
+    }
+
+    /* GALLERY */
+
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:25px;
+      margin-top:50px;
+    }
+
+    .gallery img{
+      width:100%;
+      height:350px;
+      object-fit:cover;
+      border-radius:25px;
+      transition:0.4s;
+    }
+
+    .gallery img:hover{
+      transform:scale(1.05);
+    }
+
+    /* LETTER */
+
+    .letter-box{
+      margin-top:50px;
+      background:rgba(255,255,255,0.05);
+      padding:45px;
+      border-radius:30px;
+      line-height:2;
+      color:#ddd;
+      backdrop-filter:blur(15px);
+      border:1px solid rgba(255,255,255,0.08);
+    }
+
+    /* FINAL */
+
+    .final{
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .final h1{
+      font-size:70px;
+      line-height:1.5;
+      position:relative;
+      z-index:5;
+    }
+
+    .final span{
+      color:#ffb6d9;
+    }
+
+    /* FLOWER */
+
+    .flower{
+      position:absolute;
+      top:-100px;
+      pointer-events:none;
+      animation:fall linear infinite;
+      opacity:0.9;
+    }
+
+    @keyframes fall{
+
+      0%{
+        transform:translateY(-100px) rotate(0deg);
+        opacity:0;
+      }
+
+      10%{
+        opacity:1;
+      }
+
+      100%{
+        transform:translateY(110vh) rotate(360deg);
+        opacity:0;
+      }
+
+    }
+
+    @keyframes fadeUp{
+
+      from{
+        opacity:0;
+        transform:translateY(40px);
+      }
+
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+
+    }
+
+    @media(max-width:768px){
+
+      nav{
+        flex-direction:column;
+        gap:15px;
+      }
+
+      nav ul{
+        gap:15px;
+      }
+
+      .hero h1{
+        font-size:55px;
+      }
+
+      .hero p{
+        font-size:16px;
+      }
+
+      .title{
+        font-size:40px;
+      }
+
+      .final h1{
+        font-size:45px;
+      }
+
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+
+  <nav>
+
+    <h2>Bilqis 🌸</h2>
+
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#memory">Memories</a></li>
+      <li><a href="#letter">Letter</a></li>
+      <li><a href="#final">Final</a></li>
+    </ul>
+
+  </nav>
+
+  <!-- HERO -->
+
+  <section class="hero" id="home">
+
+    <div class="hero-content">
+
+      <h1>
+        Untuk <span>Bilqis</span>
+      </h1>
+
+      <p>
+        Di antara banyak hal di hidupku,
+        kamu tetap jadi bagian paling indah.
+      </p>
+
+      <a href="#about" class="btn">
+        Explore
+      </a>
+
+    </div>
+
+  </section>
+
+  <!-- ABOUT -->
+
+  <section id="about">
+
+    <h1 class="title">
+      Tentang Kamu
+    </h1>
+
+    <p class="desc">
+      Cantik, lucu, dan selalu berhasil bikin hari jadi lebih baik.
+    </p>
+
+    <div class="cards">
+
+      <div class="card">
+        <h3>🌸 Cantik</h3>
+        <p>
+          Senyuman kamu selalu bikin semuanya terasa tenang.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>✨ Manis</h3>
+        <p>
+          Kadang cuma ngobrol sama kamu aja udah cukup bikin senang.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>💖 Spesial</h3>
+        <p>
+          Dari semua orang, tetap kamu yang paling beda.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- GALLERY -->
+
+  <section id="memory">
+
+    <h1 class="title">
+      Memories
+    </h1>
+
+    <div class="gallery">
+
+      <img src="gbr1.jpg">
+
+      <img src="gbr2.jpg">
+
+      <img src="saya1.jpeg">
+
+    </div>
+
+  </section>
+
+  <!-- LETTER -->
+
+  <section id="letter">
+
+    <h1 class="title">
+      Letter
+    </h1>
+
+    <div class="letter-box">
+
+      Hai Bilqis 🌸
+      <br><br>
+
+      Aku cuma mau bilang kalau kehadiran kamu itu berarti banget.
+      Kadang dunia emang capek,
+      tapi kamu selalu punya cara bikin semuanya terasa lebih baik.
+
+      <br><br>
+
+      Thank you for existing.
+
+    </div>
+
+  </section>
+
+  <!-- FINAL -->
+
+  <section class="final" id="final">
+
+    <h1>
+      You are still<br>
+      my favorite <span>person</span>.
+    </h1>
+
+  </section>
+
+  <!-- FLOWER SCRIPT -->
+
+  <script>
+
+    const flowerImages = [
+
+      'https://png.pngtree.com/png-vector/20230115/ourmid/pngtree-pink-sakura-flower-png-image_6563887.png',
+
+      'https://png.pngtree.com/png-vector/20230115/ourmid/pngtree-cherry-blossom-flower-png-image_6563895.png'
+
+    ];
+
+    function createFlower(){
+
+      const flower = document.createElement('img');
+
+      flower.src =
+      flowerImages[Math.floor(Math.random()*flowerImages.length)];
+
+      flower.classList.add('flower');
+
+      /* ukuran bunga lebih ringan */
+
+      const size = Math.random() * 25 + 15;
+
+      flower.style.width = size + 'px';
+
+      /* posisi random */
+
+      flower.style.left =
+      Math.random() * window.innerWidth + 'px';
+
+      /* animasi smooth */
+
+      flower.style.animationDuration =
+      Math.random() * 3 + 5 + 's';
+
+      document.body.appendChild(flower);
+
+      /* otomatis hilang */
+
+      setTimeout(()=>{
+        flower.remove();
+      },7000);
+
+    }
+
+    /* bunga lebih sedikit */
+
+    setInterval(createFlower,800);
+
+  </script>
+
+</body>
+</html>
