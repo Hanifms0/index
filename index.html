@@ -449,7 +449,7 @@
 
     ];
 
-    function createFlower(){
+     function createFlower(){
 
       const flower = document.createElement('img');
 
@@ -458,25 +458,35 @@
 
       flower.classList.add('flower');
 
-      const size = Math.random() * 40 + 25;
+      /* ukuran bunga lebih ringan */
+
+      const size = Math.random() * 25 + 15;
 
       flower.style.width = size + 'px';
+
+      /* posisi random */
 
       flower.style.left =
       Math.random() * window.innerWidth + 'px';
 
+      /* animasi smooth */
+
       flower.style.animationDuration =
-      Math.random() * 5 + 7 + 's';
+      Math.random() * 3 + 5 + 's';
 
       document.body.appendChild(flower);
 
+      /* otomatis hilang */
+
       setTimeout(()=>{
         flower.remove();
-      },12000);
+      },7000);
 
     }
 
-    setInterval(createFlower,200);
+    /* bunga lebih sedikit */
+
+    setInterval(createFlower,800);
 
   </script>
 
